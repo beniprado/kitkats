@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/kitkat.jpg" type="image/x-icon">
+    <title>KitKat</title>
+    <style>
+        body {
+            background-color: #ffe7d0;
+            ;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            color: #333;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        a.button-link {
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        button#res,
+        button#volt {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: block;
+            margin: 0 auto;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        button#res {
+            background-color: #d9494b;
+            color: #fff;
+            margin-right: 10px;
+        }
+
+        button#res:hover {
+            background-color: #ff6668;
+        }
+
+        button#volt {
+            background-color: #333;
+            color: #fff;
+            text-align: left, start;
+            text-align: justify;
+            align-items: baseline;
+            position: absolute;
+            max-width: 34%;
+        }
+
+        button#volt:hover {
+            background-color: #555;
+        }
+
+        h1,
+        h2 {
+            margin-bottom: 10px;
+            color: #d9494b;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        h1:hover {
+            transform: scale(1.1);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .description {
+            text-align: left;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        .pix-text {
+            font-size: 0.8rem;
+            margin-top: 15px;
+            text-align: right;
+            color: #888;
+        }
+
+        strong {
+            color: #d9494b;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            color: #333;
+            z-index: 2;
+        }
+
+        .popup {
+            background-color: #fff;
+            border-radius: 12px;
+            text-align: center;
+            color: #333;
+        }
+
+        .close-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.2rem;
+            color: #d9494b;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+
+        .fadeOut {
+            animation: fadeOut 0.3s ease-in-out;
+        }
+
+        a.voltar {
+            text-decoration: none;
+            color: #d9494b;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 95%;
+            }
+
+            button#res,
+            button#volt {
+                width: 100%;
+            }
+
+            .pix-text {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+    
+       
+</head>
+
+<body>
+    <div class="container"> <a class="voltar" href="index.html">
+            <h1>KitKat</h1>
+        </a> <img src="imagens/kitkat.jpg" alt="KitKat"><br><a class="button-link" href="reseva.html"
+            target="_self"><button id="res">Reservar Agora</button></a>
+        <div>
+            <h2 style="text-align: left;">Descrição</h2>
+            <ul type="disc">
+                <li>Valor unitário: <strong>R$ 4,00</strong></li>
+            </ul>
+            <!-- <p class="description"><strong>Ao comprar 3 unidades</strong>, aproveite um preço especial de apenas <strong>R$ 11,00</strong>. Não perca a oportunidade de saborear essa delícia!</p> -->
+            <button id="volt" onclick="showPopup()">Ver Oferta</button>
+            <p class="pix-text">Nosso PIX: <span style="color: #d9494b;"></span></p>
+        </div>
+    </div> <!-- Pop-up Modal -->
+    <div class="overlay" id="popupOverlay">
+        <div class="popup"> <span class="close-btn" onclick="closePopup()">×</span>
+            <h2>Oferta Especial!</h2>
+            <p>Aproveite agora nossa promoção exclusiva! Compre 3 unidades do KitKat por apenas R$ 11,00.</p> <a
+                class="button-link" href="reseva.html" target="_blank"><button id="res">Reservar Agora</button></a>
+        </div>
+    </div> <!-- Adicione este script para mostrar e fechar o pop-up -->
+    <script> function showPopup() { document.getElementById('popupOverlay').style.display = 'block'; } function closePopup() { var popup = document.getElementById('popupOverlay'); popup.classList.add('fadeOut'); setTimeout(function () { popup.style.display = 'none'; popup.classList.remove('fadeOut'); }, 300); } setTimeout(showPopup, 5000); </script>
+</body>
+
+</html>

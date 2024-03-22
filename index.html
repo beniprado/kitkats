@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delícia de KitKat</title>
+    <link rel="shortcut icon" href="imagens/kitkat.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <style>
+        body {
+            background-color: #ffe7d0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 80%;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+            position: absolute;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 15px;
+            color: #d9494b;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #4f4f4f;
+            margin-top: 15px;
+        }
+
+        mark {
+            background-color: #ffd700;
+            padding: 8px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #d9494b;
+            border-radius: 8px;
+            margin-top: 15px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        .footer {
+            padding: 10px;
+            background-color: #d9494b;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto;
+            width: 100%;
+            color: white;
+        }
+
+        .creator-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .creator-text {
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-left: 5px;
+            color: white;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #d9494b;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+        }
+
+        .popup .close {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .popup {
+                width: 80%;
+            }
+        }
+
+        .foot {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Delicie-se com KitKat!</h1>
+        <hr>
+        <p> Experimente a <mark>doçura irresistível</mark> do nosso KitKat. Uma experiência única de sabor que vai
+            encantar o seu paladar.</p>
+        <p> <a href="kitkat.html"><img src="imagens/kitkat.jpg" alt="KitKat" class="img-fluid"></a> </p>
+    </div>
+    <div class="popup" id="popup"> <span class="close" onclick="fecharPopup()">&times;</span>
+        <p style="color: white;">Aproveite agora! Compre o delicioso KitKat!</p>
+    </div>
+    <div class="footer">
+        <div class="creator-info"><span class="creator-text"><a href="https://www.instagram.com/beni.prado/"
+                    class="foot" target="_blank">feito por Beni</a></span></div>
+    </div>
+    <script> function fecharPopup() { document.getElementById('popup').style.display = 'none'; } </script>
+</body>
+
+</html>
